@@ -1,0 +1,31 @@
+SISTEMA DE GESTIÓN DE RESTAURANTE
+=================================
+
+Contenido del paquete
+---------------------
+- RestauranteApp.jar: aplicación con el controlador SQLite incluido.
+- restaurante.db: base de datos inicial con 9 mesas y 5 pedidos de ejemplo.
+- iniciar.bat: abre la aplicación en Windows.
+- LEEME.txt: este archivo.
+
+Requisitos
+----------
+- Java 17 o superior instalado.
+- Comprobar la versión con: java -version
+
+Cómo ejecutar
+-------------
+Windows:
+  Doble clic en iniciar.bat
+  o abrir una terminal en esta carpeta y ejecutar: java -jar RestauranteApp.jar
+
+Linux y macOS:
+  Abrir una terminal en esta carpeta y ejecutar: java -jar RestauranteApp.jar
+
+Importante
+----------
+- El archivo restaurante.db debe permanecer en la misma carpeta que el JAR.
+- La aplicación guarda los cambios en restaurante.db. Para volver a los datos
+  de ejemplo, conserve una copia del archivo original y reemplácelo.
+- Si aparece el mensaje "No such table: mesas", la base no está junto al JAR:
+  copie restaurante.db a la carpeta desde donde se ejecuta la aplicación.

@@ -28,3 +28,7 @@ __pycache__/
 *.db-journal
 *.db-wal
 *.db-shm
+
+entrega/*.zip
+entrega/RestauranteApp.jar
+entrega/restaurante.db

@@ -68,6 +68,26 @@ powershell -ExecutionPolicy Bypass -File .\empaquetar.ps1
 
 El script `empaquetar.ps1` genera `RestauranteApp.jar` con las clases de SQLite extraídas dentro, equivalente a la opción `extract to the target JAR` de IntelliJ IDEA.
 
+## Publicación en GitHub Releases
+
+El JAR funciona por sí solo cuando `restaurante.db` está en la misma carpeta. Para una entrega completa, adjuntar como asset de la release el paquete `entrega/RestauranteApp_v1.0.zip`, que contiene:
+
+- `RestauranteApp.jar`
+- `restaurante.db` con los datos iniciales
+- `iniciar.bat` para Windows
+- `LEEME.txt` con los pasos de ejecución
+
+El usuario final necesita Java 17 o superior. Si descarga solo el JAR y no tiene la base junto a él, la aplicación abre pero muestra el error de tablas faltantes.
+
+Para regenerar el paquete:
+
+```text
+powershell -ExecutionPolicy Bypass -File .\empaquetar.ps1
+Copy-Item restaurante.db entrega\restaurante.db -Force
+Copy-Item RestauranteApp.jar entrega\RestauranteApp.jar -Force
+Compress-Archive -Path entrega\RestauranteApp.jar, entrega\restaurante.db, entrega\iniciar.bat, entrega\LEEME.txt -DestinationPath entrega\RestauranteApp_v1.0.zip -Force
+```
+
 ## Documentación
 
 - `documentacion/Manual_RestauranteApp.pdf`: manual técnico y de usuario con portada, capturas, diagramas, declaración de roles y guía de ejecución.
