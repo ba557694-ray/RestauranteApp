@@ -1,0 +1,42 @@
+@startuml
+skinparam defaultFontName Segoe UI
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #37474F
+  ArrowColor #37474F
+}
+
+package "Vista" {
+  component "VentanaPrincipal (Swing y GUI Designer)" as VistaSwing
+}
+
+package "Lógica de Negocio" {
+  component "ServicioRestaurante (reglas de mesas, pedidos y pagos)" as Negocio
+}
+
+package "Acceso a Datos" {
+  component "MesaDAO" as MesaDAO
+  component "PedidoDAO" as PedidoDAO
+  component "ConexionBD (JDBC SQLite)" as Conexion
+}
+
+package "Base de Datos" {
+  database "restaurante.db (SQLite)" as BaseDatos
+}
+
+package "Dependencia Externa" {
+  component "sqlite-jdbc.jar" as Driver
+}
+
+VistaSwing --> Negocio : eventos y consultas
+Negocio --> MesaDAO : CRUD mesas
+Negocio --> PedidoDAO : CRUD pedidos
+MesaDAO --> Conexion : conexión
+PedidoDAO --> Conexion : conexión
+Conexion --> BaseDatos : SQL con PreparedStatement
+Conexion ..> Driver : carga el controlador
+VistaSwing ..> Driver : empaquetado en el JAR
+
+@enduml

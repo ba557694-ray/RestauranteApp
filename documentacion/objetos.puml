@@ -1,0 +1,150 @@
+@startuml
+skinparam defaultFontName Segoe UI
+skinparam shadowing false
+skinparam object {
+  BackgroundColor #FFFFFF
+  BorderColor #37474F
+  ArrowColor #37474F
+}
+
+object "ventana : VentanaPrincipal" as ventana {
+  mesaSeleccionada = 1
+}
+
+object "servicio : ServicioRestaurante" as servicio
+
+object "mesaDAO : MesaDAO" as mesaDAO
+object "pedidoDAO : PedidoDAO" as pedidoDAO
+object "conexion : ConexionBD" as conexion
+
+object "mesa1 : Mesa" as mesa1 {
+  idMesa = 1
+  numero = 1
+  capacidad = 4
+  estado = "Ocupada"
+  ubicacion = "Salón principal"
+}
+
+object "mesa2 : Mesa" as mesa2 {
+  idMesa = 2
+  numero = 2
+  capacidad = 2
+  estado = "Ocupada"
+  ubicacion = "Terraza"
+}
+
+object "mesa3 : Mesa" as mesa3 {
+  idMesa = 3
+  numero = 3
+  capacidad = 6
+  estado = "Ocupada"
+  ubicacion = "Salón principal"
+}
+
+object "mesa4 : Mesa" as mesa4 {
+  idMesa = 4
+  numero = 4
+  capacidad = 4
+  estado = "Disponible"
+  ubicacion = "Ventana"
+}
+
+object "mesa5 : Mesa" as mesa5 {
+  idMesa = 5
+  numero = 5
+  capacidad = 2
+  estado = "Disponible"
+  ubicacion = "Barra"
+}
+
+object "pedido1 : Pedido" as pedido1 {
+  idPedido = 1
+  idMesa = 1
+  platillo = "Tacos al Pastor"
+  cantidad = 2
+  precioUnitario = 85.00
+  subtotal = 170.00
+  estado = "Entregado"
+  pagado = false
+}
+
+object "pedido2 : Pedido" as pedido2 {
+  idPedido = 2
+  idMesa = 1
+  platillo = "Agua de Horchata"
+  cantidad = 2
+  precioUnitario = 35.00
+  subtotal = 70.00
+  estado = "Entregado"
+  pagado = false
+}
+
+object "pedido3 : Pedido" as pedido3 {
+  idPedido = 3
+  idMesa = 2
+  platillo = "Enchiladas Verdes"
+  cantidad = 1
+  precioUnitario = 120.00
+  subtotal = 120.00
+  estado = "Pendiente"
+  pagado = false
+}
+
+object "pedido4 : Pedido" as pedido4 {
+  idPedido = 4
+  idMesa = 3
+  platillo = "Pozole Rojo"
+  cantidad = 2
+  precioUnitario = 110.00
+  subtotal = 220.00
+  estado = "Entregado"
+  pagado = false
+}
+
+object "pedido5 : Pedido" as pedido5 {
+  idPedido = 5
+  idMesa = 3
+  platillo = "Flan Napolitano"
+  cantidad = 1
+  precioUnitario = 45.00
+  subtotal = 45.00
+  estado = "Pendiente"
+  pagado = false
+}
+
+object "tacos : Platillo" as tacos {
+  nombre = "Tacos al Pastor"
+  precio = 85.00
+  categoria = "Platillo fuerte"
+  disponible = true
+}
+
+object "horchata : Platillo" as horchata {
+  nombre = "Agua de Horchata"
+  precio = 35.00
+  categoria = "Bebida"
+  disponible = true
+}
+
+object "enchiladas : Platillo" as enchiladas {
+  nombre = "Enchiladas Verdes"
+  precio = 120.00
+  categoria = "Platillo fuerte"
+  disponible = true
+}
+
+ventana --> servicio : utiliza
+servicio --> mesaDAO : consulta
+servicio --> pedidoDAO : consulta
+mesaDAO --> conexion : usa
+pedidoDAO --> conexion : usa
+servicio o-- tacos : ofrece
+servicio o-- horchata : ofrece
+servicio o-- enchiladas : ofrece
+mesa1 -- pedido1
+mesa1 -- pedido2
+mesa2 -- pedido3
+mesa3 -- pedido4
+mesa3 -- pedido5
+
+@enduml

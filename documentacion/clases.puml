@@ -1,0 +1,242 @@
+@startuml
+skinparam defaultFontName Segoe UI
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #37474F
+  ArrowColor #37474F
+  HeaderBackgroundColor #E8F5E9
+}
+
+package "modelo" {
+  class Mesa {
+    - idMesa : int
+    - numero : int
+    - capacidad : int
+    - estado : String
+    - ubicacion : String
+    + Mesa()
+    + Mesa(idMesa : int, numero : int, capacidad : int, estado : String, ubicacion : String)
+    + getIdMesa() : int
+    + setIdMesa(idMesa : int) : void
+    + getNumero() : int
+    + setNumero(numero : int) : void
+    + getCapacidad() : int
+    + setCapacidad(capacidad : int) : void
+    + getEstado() : String
+    + setEstado(estado : String) : void
+    + getUbicacion() : String
+    + setUbicacion(ubicacion : String) : void
+    + estaDisponible() : boolean
+    + ocupar() : void
+    + liberar() : void
+    + toString() : String
+  }
+
+  class Pedido {
+    - idPedido : int
+    - idMesa : int
+    - platillo : String
+    - cantidad : int
+    - precioUnitario : double
+    - subtotal : double
+    - estado : String
+    - pagado : boolean
+    - metodoPago : String
+    - fechaHora : String
+    - fechaPago : String
+    + Pedido()
+    + Pedido(idMesa : int, platillo : String, cantidad : int, precioUnitario : double)
+    + Pedido(idPedido : int, idMesa : int, platillo : String, cantidad : int, precioUnitario : double, estado : String, pagado : boolean)
+    + getIdPedido() : int
+    + setIdPedido(idPedido : int) : void
+    + getIdMesa() : int
+    + setIdMesa(idMesa : int) : void
+    + getPlatillo() : String
+    + setPlatillo(platillo : String) : void
+    + getCantidad() : int
+    + setCantidad(cantidad : int) : void
+    + getPrecioUnitario() : double
+    + setPrecioUnitario(precioUnitario : double) : void
+    + getSubtotal() : double
+    + setSubtotal(subtotal : double) : void
+    + calcularSubtotal() : double
+    + getEstado() : String
+    + setEstado(estado : String) : void
+    + isPagado() : boolean
+    + setPagado(pagado : boolean) : void
+    + getMetodoPago() : String
+    + setMetodoPago(metodoPago : String) : void
+    + getFechaHora() : String
+    + setFechaHora(fechaHora : String) : void
+    + getFechaPago() : String
+    + setFechaPago(fechaPago : String) : void
+    + marcarEntregado() : void
+    + estaPagado() : boolean
+    + esPendiente() : boolean
+  }
+
+  class Platillo {
+    - nombre : String
+    - precio : double
+    - categoria : String
+    - disponible : boolean
+    + Platillo(nombre : String, precio : double, categoria : String)
+    + getNombre() : String
+    + getPrecio() : double
+    + getCategoria() : String
+    + isDisponible() : boolean
+    + setDisponible(disponible : boolean) : void
+    + getPrecioFormateado() : String
+    + toString() : String
+  }
+}
+
+package "datos" {
+  class ConexionBD {
+    - RUTA_BASE_DATOS : String
+    - DIRECCION_BASE_DATOS : String
+    + ConexionBD()
+    + obtenerConexion() : Connection
+    + cerrarConexion(conexion : Connection) : void
+    + obtenerRutaBaseDatos() : String
+    - cargarControlador() : void
+  }
+
+  class ExcepcionBaseDatos <<exception>> {
+    + ExcepcionBaseDatos(mensaje : String)
+    + ExcepcionBaseDatos(mensaje : String, causa : Throwable)
+  }
+
+  class MesaDAO {
+    - conexionBD : ConexionBD
+    + MesaDAO()
+    + insertar(mesa : Mesa) : boolean
+    + actualizar(mesa : Mesa) : boolean
+    + eliminar(idMesa : int) : boolean
+    + obtenerTodos() : List<Mesa>
+    + obtenerPorId(idMesa : int) : Mesa
+    + cambiarEstado(idMesa : int, estado : String) : boolean
+  }
+
+  class PedidoDAO {
+    - conexionBD : ConexionBD
+    + PedidoDAO()
+    + insertar(pedido : Pedido) : boolean
+    + actualizar(pedido : Pedido) : boolean
+    + eliminar(idPedido : int) : boolean
+    + obtenerTodos() : List<Pedido>
+    + obtenerPorId(idPedido : int) : Pedido
+    + obtenerPorMesa(idMesa : int) : List<Pedido>
+    + obtenerPendientesPorMesa(idMesa : int) : List<Pedido>
+    + marcarEntregado(idPedido : int) : boolean
+    + registrarPagoMesa(idMesa : int, metodoPago : String) : boolean
+    + calcularTotalMesa(idMesa : int) : double
+  }
+}
+
+package "negocio" {
+  class ServicioRestaurante {
+    - mesaDAO : MesaDAO
+    - pedidoDAO : PedidoDAO
+    - mesasPorNumero : Map<Integer, Mesa>
+    + ServicioRestaurante()
+    + cargarMesas() : List<Mesa>
+    + obtenerMesas() : List<Mesa>
+    + obtenerMesa(numero : int) : Mesa
+    + abrirMesa(numero : int) : Mesa
+    + obtenerPedidosMesa(numero : int) : List<Pedido>
+    + obtenerPedidosActivos() : List<Pedido>
+    + agregarPlatillo(numero : int, platillo : Platillo) : Pedido
+    + marcarEntregado(pedido : Pedido) : void
+    + eliminarPedido(pedido : Pedido) : void
+    + liberarMesaSiEstaVacia(numero : int) : boolean
+    + calcularTotalMesa(numero : int) : double
+    + calcularTotalPendiente() : double
+    + registrarPago(numero : int, metodoPago : String) : double
+    + contarMesasOcupadas() : int
+    - buscarMesa(numero : int) : Mesa
+  }
+}
+
+package "vista" {
+  class Principal {
+    + main(args : String[]) : void
+  }
+
+  class VentanaPrincipal {
+    - servicio : ServicioRestaurante
+    - mesas : List<Mesa>
+    - pedidosVisibles : List<Pedido>
+    - botonesMesas : Map<Integer, JButton>
+    - modeloOrden : DefaultTableModel
+    - menuOrden : JPopupMenu
+    - opcionEliminarPlatillo : JMenuItem
+    - opcionMarcarEntregado : JMenuItem
+    - numeroMesaSeleccionada : int
+    - panelPrincipal : JPanel
+    - panelLateral : JPanel
+    - panelSuperior : JPanel
+    - panelMesas : JPanel
+    - panelOrden : JPanel
+    - panelPlatillos : JPanel
+    - panelAcciones : JPanel
+    - tablaOrden : JTable
+    - etiquetaTotal : JLabel
+    + VentanaPrincipal()
+    - iniciarServicio() : void
+    - configurarTabla() : void
+    - configurarMenuOrden() : void
+    - mostrarMenuOrden(evento : MouseEvent) : void
+    - actualizarOpcionesMenu() : void
+    - aplicarEstilos() : void
+    - inicializarMenu() : void
+    - crearBotonesMesas() : void
+    - actualizarBotonMesa(numero : int) : void
+    - seleccionarMesa(numero : int) : void
+    - mostrarMesa(numero : int) : void
+    - cargarPedidos() : void
+    - agregarPlatillo(platillo : Platillo) : void
+    - marcarPlatilloEntregado() : void
+    - eliminarPlatilloSeleccionado() : void
+    - generarCuenta() : void
+    - registrarPago(metodoPago : String) : void
+    - pagarEnEfectivo() : void
+    - pagarConTerminal() : void
+    - recargarMesas() : void
+    - mostrarPedidosActivos() : void
+    - mostrarReportes() : void
+    - abrirConfiguracion() : void
+    - cerrarSesion() : void
+    - $$$setupUI$$$() : void
+  }
+
+  class IconoUsuario {
+    - tamano : int
+    - color : Color
+    + IconoUsuario(tamano : int, color : Color)
+    + paintIcon(componente : Component, grafico : Graphics, x : int, y : int) : void
+    + getIconWidth() : int
+    + getIconHeight() : int
+  }
+}
+
+class BaseDatos <<database>> {
+}
+
+Principal --> VentanaPrincipal : crea
+VentanaPrincipal "1" --> "1" ServicioRestaurante : delega
+VentanaPrincipal --> IconoUsuario : dibuja
+ServicioRestaurante "1" --> "1" MesaDAO : utiliza
+ServicioRestaurante "1" --> "1" PedidoDAO : utiliza
+ServicioRestaurante "1" o-- "0..*" Mesa : administra
+ServicioRestaurante "1" o-- "0..*" Platillo : ofrece
+MesaDAO --> ConexionBD : usa
+PedidoDAO --> ConexionBD : usa
+MesaDAO ..> ExcepcionBaseDatos : lanza
+PedidoDAO ..> ExcepcionBaseDatos : lanza
+ConexionBD --> BaseDatos : JDBC
+Mesa "1" -- "0..*" Pedido : contiene
+
+@enduml

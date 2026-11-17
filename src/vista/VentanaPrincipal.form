@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="vista.VentanaPrincipal">
+  <grid id="a001" binding="panelPrincipal" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="0" y="0" width="1280" height="780"/>
+    </constraints>
+    <properties>
+      <background color="16119546"/>
+      <minimumSize width="1100" height="700"/>
+      <preferredSize width="1280" height="780"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="a002" binding="panelLateral" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="West"/>
+        <properties>
+          <background color="1973805"/>
+          <minimumSize width="230" height="-1"/>
+          <preferredSize width="230" height="-1"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="a003" binding="panelLogo" layout-manager="GridBagLayout">
+            <constraints border-constraint="North"/>
+            <properties>
+              <background color="1973805"/>
+            </properties>
+            <border type="empty">
+              <font/>
+              <size top="28" left="18" bottom="18" right="18"/>
+            </border>
+            <children>
+              <component id="a004" class="javax.swing.JLabel" binding="etiquetaLogo">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <font name="Segoe UI" size="40" style="1"/>
+                  <foreground color="15105570"/>
+                  <horizontalAlignment value="0"/>
+                  <text value="R"/>
+                </properties>
+              </component>
+              <component id="a005" class="javax.swing.JLabel" binding="etiquetaNombreRestaurante">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <font name="Segoe UI" size="18" style="1"/>
+                  <foreground color="16777215"/>
+                  <horizontalAlignment value="0"/>
+                  <text value="RESTAURANTE"/>
+                </properties>
+              </component>
+              <component id="a006" class="javax.swing.JLabel" binding="etiquetaEslogan">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <font name="Segoe UI" size="10" style="0"/>
+                  <foreground color="12105927"/>
+                  <horizontalAlignment value="0"/>
+                  <text value="LA CASITA"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="a007" binding="panelNavegacion" layout-manager="GridBagLayout">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="1973805"/>
+            </properties>
+            <border type="empty">
+              <font/>
+              <size top="0" left="14" bottom="18" right="14"/>
+            </border>
+            <children>
+              <component id="a008" class="javax.swing.JButton" binding="botonMesas">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="1973805"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="true"/>
+                  <focusPainted value="false"/>
+                  <font name="Segoe UI" size="14" style="1"/>
+                  <foreground color="12105927"/>
+                  <horizontalAlignment value="2"/>
+                  <preferredSize width="-1" height="44"/>
+                  <text value="Mesas"/>
+                </properties>
+              </component>
+              <component id="a009" class="javax.swing.JButton" binding="botonPedidos">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="1973805"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="true"/>
+                  <focusPainted value="false"/>
+                  <font name="Segoe UI" size="14" style="1"/>
+                  <foreground color="12105927"/>
+                  <horizontalAlignment value="2"/>
+                  <preferredSize width="-1" height="44"/>
+                  <text value="Pedidos"/>
+                </properties>
+              </component>
+              <component id="a00a" class="javax.swing.JButton" binding="botonReportes">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="1973805"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="true"/>
+                  <focusPainted value="false"/>
+                  <font name="Segoe UI" size="14" style="1"/>
+                  <foreground color="12105927"/>
+                  <horizontalAlignment value="2"/>
+                  <preferredSize width="-1" height="44"/>
+                  <text value="Reportes"/>
+                </properties>
+              </component>
+              <component id="a00b" class="javax.swing.JButton" binding="botonConfiguracion">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="1973805"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="true"/>
+                  <focusPainted value="false"/>
+                  <font name="Segoe UI" size="14" style="1"/>
+                  <foreground color="12105927"/>
+                  <horizontalAlignment value="2"/>
+                  <preferredSize width="-1" height="44"/>
+                  <text value="Configuración"/>
+                </properties>
+              </component>
+              <component id="a00c" class="javax.swing.JPanel">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="1.0"/>
+                </constraints>
+                <properties>
+                  <background color="1973805"/>
+                </properties>
+              </component>
+              <component id="a00d" class="javax.swing.JButton" binding="botonCerrarSesion">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="1.0" weighty="0.0"/>
+                </constraints>
+                <properties>
+                  <background color="1973805"/>
+                  <borderPainted value="false"/>
+                  <contentAreaFilled value="true"/>
+                  <focusPainted value="false"/>
+                  <font name="Segoe UI" size="14" style="1"/>
+                  <foreground color="12105927"/>
+                  <horizontalAlignment value="2"/>
+                  <preferredSize width="-1" height="44"/>
+                  <text value="Cerrar sesión"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="a00e" binding="panelDerecha" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <background color="16119546"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="a00f" binding="panelSuperior" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="North"/>
+            <properties>
+              <background color="16777215"/>
+              <minimumSize width="-1" height="72"/>
+              <preferredSize width="-1" height="72"/>
+            </properties>
+            <border type="empty">
+              <font/>
+              <size top="18" left="24" bottom="18" right="24"/>
+            </border>
+            <children>
+              <component id="a010" class="javax.swing.JLabel" binding="etiquetaTitulo">
+                <constraints border-constraint="West"/>
+                <properties>
+                  <font name="Segoe UI" size="22" style="1"/>
+                  <foreground color="1973805"/>
+                  <text value="Sistema de Gestión de Restaurante"/>
+                </properties>
+              </component>
+              <component id="a011" class="javax.swing.JLabel" binding="etiquetaUsuario">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <font name="Segoe UI" size="14" style="0"/>
+                  <foreground color="7105664"/>
+                  <horizontalAlignment value="4"/>
+                  <text value="Mesero: Juan Pérez"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="a012" binding="panelCentral" layout-manager="GridBagLayout">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="16119546"/>
+            </properties>
+            <border type="empty">
+              <font/>
+              <size top="16" left="16" bottom="16" right="16"/>
+            </border>
+            <children>
+              <grid id="a013" binding="panelMesas" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.38" weighty="0.56"/>
+                </constraints>
+                <properties>
+                  <background color="16777215"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="a014" class="javax.swing.JLabel" binding="etiquetaTituloMesas">
+                    <constraints border-constraint="North"/>
+                    <properties>
+                      <font name="Segoe UI" size="16" style="1"/>
+                      <foreground color="1973805"/>
+                      <text value="Mesas"/>
+                    </properties>
+                  </component>
+                  <grid id="a015" binding="panelBotonesMesas" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <background color="16777215"/>
+                    </properties>
+                    <border type="empty">
+                      <font/>
+                      <size top="0" left="16" bottom="16" right="16"/>
+                    </border>
+                    <children/>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="a016" binding="panelOrden" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.62" weighty="0.56"/>
+                </constraints>
+                <properties>
+                  <background color="16777215"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="a017" class="javax.swing.JLabel" binding="etiquetaTituloOrden">
+                    <constraints border-constraint="North"/>
+                    <properties>
+                      <font name="Segoe UI" size="16" style="1"/>
+                      <foreground color="1973805"/>
+                      <text value="Orden de la Mesa 1"/>
+                    </properties>
+                  </component>
+                  <scrollpane id="a018" binding="panelDesplazamientoOrden">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <horizontalScrollBarPolicy value="31"/>
+                      <verticalScrollBarPolicy value="20"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <component id="a019" class="javax.swing.JTable" binding="tablaOrden">
+                        <constraints/>
+                        <properties>
+                          <background color="16777215"/>
+                          <gridColor color="15001327"/>
+                          <showGrid value="false"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                  <grid id="a01a" binding="panelTotal" layout-manager="BorderLayout" hgap="0" vgap="0">
+                    <constraints border-constraint="South"/>
+                    <properties>
+                      <background color="16448252"/>
+                    </properties>
+                    <border type="empty">
+                      <font/>
+                      <size top="10" left="16" bottom="12" right="16"/>
+                    </border>
+                    <children>
+                      <component id="a01b" class="javax.swing.JLabel" binding="etiquetaTextoTotal">
+                        <constraints border-constraint="West"/>
+                        <properties>
+                          <font name="Segoe UI" size="15" style="1"/>
+                          <foreground color="7105664"/>
+                          <text value="Total:"/>
+                        </properties>
+                      </component>
+                      <component id="a01c" class="javax.swing.JLabel" binding="etiquetaTotal">
+                        <constraints border-constraint="East"/>
+                        <properties>
+                          <font name="Segoe UI" size="22" style="1"/>
+                          <foreground color="15105570"/>
+                          <horizontalAlignment value="4"/>
+                          <text value="$0.00"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+              <grid id="a01d" binding="panelPlatillos" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.38" weighty="0.44"/>
+                </constraints>
+                <properties>
+                  <background color="16777215"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="a01e" class="javax.swing.JLabel" binding="etiquetaTituloPlatillos">
+                    <constraints border-constraint="North"/>
+                    <properties>
+                      <font name="Segoe UI" size="16" style="1"/>
+                      <foreground color="1973805"/>
+                      <text value="Platillos"/>
+                    </properties>
+                  </component>
+                  <scrollpane id="a01f" binding="panelDesplazamientoPlatillos">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <horizontalScrollBarPolicy value="31"/>
+                      <verticalScrollBarPolicy value="20"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <grid id="a020" binding="panelListaPlatillos" layout-manager="BorderLayout" hgap="0" vgap="0">
+                        <constraints/>
+                        <properties>
+                          <background color="16777215"/>
+                        </properties>
+                        <border type="none"/>
+                        <children/>
+                      </grid>
+                    </children>
+                  </scrollpane>
+                </children>
+              </grid>
+              <grid id="a021" binding="panelAcciones" layout-manager="BorderLayout" hgap="0" vgap="0">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <gridbag weightx="0.62" weighty="0.44"/>
+                </constraints>
+                <properties>
+                  <background color="16777215"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="a022" class="javax.swing.JLabel" binding="etiquetaTituloAcciones">
+                    <constraints border-constraint="North"/>
+                    <properties>
+                      <font name="Segoe UI" size="16" style="1"/>
+                      <foreground color="1973805"/>
+                      <text value="Acciones"/>
+                    </properties>
+                  </component>
+                  <grid id="a023" binding="panelBotonesAcciones" layout-manager="GridBagLayout">
+                    <constraints border-constraint="Center"/>
+                    <properties>
+                      <background color="16777215"/>
+                    </properties>
+                    <border type="empty">
+                      <font/>
+                      <size top="0" left="16" bottom="16" right="16"/>
+                    </border>
+                    <children>
+                      <component id="a024" class="javax.swing.JButton" binding="botonMarcarEntregado">
+                        <constraints>
+                          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="1.0"/>
+                        </constraints>
+                        <properties>
+                          <background color="15105570"/>
+                          <borderPainted value="false"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <font name="Segoe UI" size="15" style="1"/>
+                          <foreground color="16777215"/>
+                          <text value="Marcar platillo como entregado"/>
+                        </properties>
+                      </component>
+                      <component id="a025" class="javax.swing.JButton" binding="botonGenerarCuenta">
+                        <constraints>
+                          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="1.0"/>
+                        </constraints>
+                        <properties>
+                          <background color="1973805"/>
+                          <borderPainted value="false"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <font name="Segoe UI" size="15" style="1"/>
+                          <foreground color="16777215"/>
+                          <text value="Generar cuenta"/>
+                        </properties>
+                      </component>
+                      <component id="a026" class="javax.swing.JButton" binding="botonRegistrarPago">
+                        <constraints>
+                          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="1.0"/>
+                        </constraints>
+                        <properties>
+                          <background color="2600544"/>
+                          <borderPainted value="false"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <font name="Segoe UI" size="15" style="1"/>
+                          <foreground color="16777215"/>
+                          <text value="Registrar pago"/>
+                        </properties>
+                      </component>
+                      <component id="a027" class="javax.swing.JButton" binding="botonPagoEfectivo">
+                        <constraints>
+                          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="1.0"/>
+                        </constraints>
+                        <properties>
+                          <background color="2719929"/>
+                          <borderPainted value="false"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <font name="Segoe UI" size="15" style="1"/>
+                          <foreground color="16777215"/>
+                          <text value="Pagar en efectivo"/>
+                        </properties>
+                      </component>
+                      <component id="a028" class="javax.swing.JButton" binding="botonPagoTerminal">
+                        <constraints>
+                          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                          <gridbag weightx="1.0" weighty="1.0"/>
+                        </constraints>
+                        <properties>
+                          <background color="9323693"/>
+                          <borderPainted value="false"/>
+                          <contentAreaFilled value="true"/>
+                          <focusPainted value="false"/>
+                          <font name="Segoe UI" size="15" style="1"/>
+                          <foreground color="16777215"/>
+                          <text value="Pagar con terminal"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </grid>
+                </children>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
